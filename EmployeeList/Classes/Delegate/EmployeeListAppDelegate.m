@@ -7,6 +7,7 @@
 //
 
 #import "EmployeeListAppDelegate.h"
+#import "EmployeeTableViewController.h"
 
 @implementation EmployeeListAppDelegate
 
@@ -22,7 +23,13 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    EmployeeTableViewController *controller = [[EmployeeTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    [self.window addSubview:navController.view];
+    
+    self.window.backgroundColor = [UIColor clearColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
